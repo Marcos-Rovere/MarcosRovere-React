@@ -2,6 +2,7 @@ import React from "react"
 
 const Items = ({img,description,title,precio})=>{
     return(
+        <React.Fragment>
         <div>
             <div>
                 <img src={img} alt="Producto"/>
@@ -16,6 +17,7 @@ const Items = ({img,description,title,precio})=>{
                 </div>
             </div>
         </div>
+        </React.Fragment>
     )
 
 }

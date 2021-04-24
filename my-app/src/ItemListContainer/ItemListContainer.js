@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from "react"
 import ItemList from "./ItemList"
+import FotoCala from "./img/cala.jpg"
+import FotoCostilla from "./img/costillaAdam.jpg"
+import FotoCroto from "./img/Croto.jpg"
+import FotoLengua from "./img/Lengua.png"
 
 const ItemListContainer = () => {
     const [datos, setDatos] = useState([])
@@ -8,23 +12,23 @@ const ItemListContainer = () => {
         const promi = new Promise ((resolve,reject)=>{
             const catalogo = [
                 {id:1,
-                imag:'./img/cala.jpg',
+                imag:{FotoCala},
                 title:"Cala",
                 description:"Cala de Interiores",
                 precio:"$900"},
                 {id:2,
-                imag:'./img/costillaAdam.jpg',
-                title:"Cala",
+                imag:{FotoCostilla},
+                title:"Costilla de Adam",
                 description:"Costilla de Adam",
                 precio:"$800"},
                 {id:3,
-                imag:'./img/Croto.jpg',
-                title:"Cala",
+                imag:{FotoCroto},
+                title:"Croto",
                 description:"Croto de interior",
                 precio:"$1000"},
                 {id:4,
-                imag:'./img/Lengua.png',
-                title:"Cala",
+                imag:{FotoLengua},
+                title:"Lengua de Suegra",
                 description:"Lengua de Suegra",
                 precio:"$600"}
             ];
@@ -44,7 +48,7 @@ const ItemListContainer = () => {
     },[])
     
     return (
-        <ItemList productos={datos}/>
+        <ItemList productos={datos} />
     )
 }
 export default ItemListContainer
