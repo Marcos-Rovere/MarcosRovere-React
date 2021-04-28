@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import Item from "./Item"
-import { useState } from "react"
+
 
 const contadorStock = ({stockTotal})=>{
     const [stockTotal, setStockTotal] = useState(stockTotal);
