@@ -9,7 +9,7 @@ const ItemList = ({productos}) =>{
         <div>Catalogo</div>
         {productos.map((dato)=>
         <div key={dato.id}>
-            <Item img={dato.imag} title={dato.title} description={dato.description}precio={dato.precio} stockTotal={dato.stockTotal}/>
+            <Item img={dato.imag} title={dato.title} description={dato.description}precio={dato.precio} stock={dato.stock}/>
         </div>)}
         </React.Fragment>  
     )

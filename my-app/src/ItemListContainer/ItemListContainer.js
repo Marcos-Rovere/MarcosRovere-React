@@ -15,7 +15,7 @@ const ItemListContainer = () => {
                 imag:FotoCala,
                 title:"Cala",
                 description:"Cala de Interiores",
-                stockTotal: 5,
+                stock: 5,
                 precio:"$900"},
                 {id:2,
                 imag:FotoCostilla,
@@ -27,13 +27,13 @@ const ItemListContainer = () => {
                 imag:FotoCroto,
                 title:"Croto",
                 description:"Croto de interior",
-                stockTotal: 5,
+                stock: 5,
                 precio:"$1000"},
                 {id:4,
                 imag:FotoLengua,
                 title:"Lengua de Suegra",
                 description:"Lengua de Suegra",
-                stockTotal: 5,
+                stock: 5,
                 precio:"$600"}
             ];
                 setTimeout(()=>{

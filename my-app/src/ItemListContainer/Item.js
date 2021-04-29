@@ -1,7 +1,30 @@
-import React from "react"
+import React, {useState} from "react"
 import "./styleCatalogo.css"
 
-const Items = ({img,description,title,precio,StockCompra,StockTotal,sumar,restar})=>{
+const Items = ({img,description,title,precio,stock})=>{
+        
+        const [stockTotal, setStockTotal] = useState(stock);
+        const [stockComprado, setStockCompra] = useState (0);
+    
+        const Sumar = () => {
+            if (stockTotal === 0){
+                console.log("Suma")
+            }
+            else{
+                setStockCompra (stockComprado + 1)
+                setStockTotal (stockTotal - 1)
+            }
+        }
+        const Resta = () => {
+            if (stockTotal === 0){
+                console.log("Resta")
+            }
+            else {
+                setStockCompra (stockComprado - 1)
+                setStockTotal (stockTotal + 1)
+            }
+        }
+    
     return(
         <React.Fragment>
         <div className="container">
@@ -17,11 +40,11 @@ const Items = ({img,description,title,precio,StockCompra,StockTotal,sumar,restar
                     <div>
                         <span>{precio}</span>
                     </div>
-                    <div><p>Cantidad disponible {StockTotal}</p></div>
+                    <div><p>Cantidad disponible: {stockTotal}</p></div>
                     <div className="row">
-                        <button onClick={restar} className="btn btn-outline-primary botonStock">- </button>
-                        <p>{StockCompra}</p> 
-                        <button onClick={sumar} className="btn btn-outline-primary">+</button>
+                        <button onClick={Resta} className="btn btn-outline-primary botonStock">- </button>
+                        <p>{stockComprado}</p> 
+                        <button onClick={Sumar} className="btn btn-outline-primary">+</button>
                     </div>
                 </div>
             </div>
