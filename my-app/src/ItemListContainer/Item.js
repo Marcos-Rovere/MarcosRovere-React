@@ -34,7 +34,7 @@ const Items = ({img,description,title,precio,stock})=>{
                 </div>
                 <div className = "divCatalogo">
                     <h3>
-                        <a href="#" className = "tituloCatalogo">{title}</a>
+                        <p className = "tituloCatalogo">{title}</p>
                     </h3>
                     <div>{description}</div>
                     <div>
