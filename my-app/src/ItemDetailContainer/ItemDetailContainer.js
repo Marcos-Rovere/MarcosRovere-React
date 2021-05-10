@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react"
 import ItemDetail from "./ItemDetail"
 import {useParams} from "react-router-dom"
-import FotoCala from "./img/cala.jpg"
-import FotoCostilla from "./img/costillaAdam.jpg"
-import FotoCroto from "./img/Croto.jpg"
-import FotoLengua from "./img/Lengua.png"
+import FotoCala from "../ItemListContainer/img/cala.jpg"
+import FotoCostilla from "../ItemListContainer/img/costillaAdam.jpg"
+import FotoCroto from "../ItemListContainer/img/Croto.jpg"
+import FotoLengua from "../ItemListContainer/img/Lengua.png"
 
 const ItemDetailContainer = () =>{
     const [datos, setDatos] = useState({})

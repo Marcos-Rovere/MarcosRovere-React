@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+.fondoHome{
+  background-image: url(./Imagenes/Fondo1.jpg);
+  display: flex;
+  flex-wrap: nowrap;
+  height: 500px;
+}
+.TituloHome{
+  color: brown;
+  font-size: 180px;
+  padding: 50px;
+  margin: 50px;
+ 
+  
+}

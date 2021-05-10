@@ -1,24 +1,26 @@
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import {BrowserRouter, Switch, Router} from 'react-router-dom'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import NavBar from "./navBar/navBar";
 import ItemListContainer from "./ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer.js"
+import Home from "./Home"
+import Footer from "./Footer/Footer"
 
 function App() {
   return (
     <BrowserRouter>
     <NavBar />
     <Switch>
-      <Router path='/'>
+      <Route path='/'>
+        <Home />
         <ItemListContainer />
-      </Router>
-     <Router path = '/Item/:id'>
+      </Route>
+     <Route path = '/Item/:id'>
         <ItemDetailContainer />
-      </Router>
-
-      
+      </Route>
     </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
