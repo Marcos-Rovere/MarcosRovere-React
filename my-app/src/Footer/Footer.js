@@ -1,21 +1,19 @@
 import React from "react"
+import "./footer.css"
+import {FacebookFilled,InstagramOutlined,GoogleOutlined,WhatsAppOutlined} from "@ant-design/icons"
 
 const Footer = () => {
     return (
-    <div class="footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 col-sm-12">
-               <div class="redes-container">
+    <div className="footer">
+        <div className="container">
+               <div className="redes-container">
                 <ul>
-                  <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                  <li><a href="#" class="instagram"><i class="fab fa-instagram"></i></a></li>
-                  <li><a href="#" class="email"><i class="fas fa-at"></i></a></li>
-                  <li><a href="#" class="whatapp"><i class="fab fa-whatsapp"></i></a></li>
+                  <li><a href="#" className="facebook"><FacebookFilled style={{fontSize: "35px"}}/></a></li>
+                  <li><a href="#" className="instagram"><InstagramOutlined style={{fontSize: "35px"}}/></a></li>
+                  <li><a href="#" className="email"><GoogleOutlined style={{fontSize: "35px"}} /></a></li>
+                  <li><a href="#" className="whatapp"><WhatsAppOutlined style={{fontSize: "35px"}}/></a></li>
                  </ul>
                 </div>
-            </div>
-          </div>
         </div>
     </div>
     )

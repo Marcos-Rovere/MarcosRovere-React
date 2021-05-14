@@ -1,17 +1,5 @@
-.ImagenesCatalogo{
-    width: 250 px;
-    height: 250px;
-}
-.divCatalogo{
-    padding: 20px;
-    margin: 20px;
-    text-align: center;
-}
-.tituloCatalogo {
-    color: black;
-}
-.botonStock{
-    text-align: center;
-    
-    
+.compra {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
 }

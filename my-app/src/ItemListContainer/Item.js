@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import { Link } from "react-router-dom";
 import "./styleCatalogo.css"
 
 const Items = ({img,description,title,precio,stock})=>{
@@ -23,24 +24,22 @@ const Items = ({img,description,title,precio,stock})=>{
     
     return(
         <React.Fragment>
-        <div className="container">
+        <div className="container" style={{margin:"20px"}}>
             <div className="row">
-                <div >
-                    <img src={img} alt="Producto" className ="ImagenesCatalogo"/>
-                </div>
-                <div className = "divCatalogo">
-                    <h3>
-                        <p className = "tituloCatalogo">{title}</p>
-                    </h3>
-                    <div>{description}</div>
-                    <div>
-                        <span>{precio}</span>
-                    </div>
-                    <div><p>Cantidad disponible: {StockTotal}</p></div>
-                    <div className="row">
-                        <button onClick={Resta} className="btn btn-outline-primary botonStock">- </button>
-                        <p>{StockComprado}</p> 
-                        <button onClick={Sumar} className="btn btn-outline-primary">+</button>
+                <div className="col-lg-3">
+                    <div className="card" style={{textAlign:"center"}}>
+                        <img src={img} className="card-img-top" alt="Producto"></img>
+                        <div className="card-body">
+                            <h5 className="card-title">{title}</h5>
+                            <p className="card-text">{description}</p>
+                            <p className="card-text">Cantidad Disponible: {StockTotal}</p>
+                            <p  className="btn btn-primary"><Link to={`/item/${datos.id}`}></Link>Descripcion</p>
+                            <div className="row compra">
+                            <button onClick={Resta} className="btn btn-outline-primary botonStock">- </button>
+                            <input class="form-control" style={{width:"45px"}} placeholder={StockComprado}></input>
+                            <button onClick={Sumar} className="btn btn-outline-primary">+</button>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -50,3 +49,5 @@ const Items = ({img,description,title,precio,stock})=>{
 
 }
 export default Items
+
+

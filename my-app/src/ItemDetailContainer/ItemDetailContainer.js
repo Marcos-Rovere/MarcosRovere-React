@@ -11,7 +11,6 @@ const ItemDetailContainer = () =>{
     const{id} = useParams()
 
     useEffect(()=>{
-    const getItem = () => {
         const promi = new Promise ((resolve,reject)=>{
             const catalogo = [
                 {id:1,
@@ -53,11 +52,9 @@ const ItemDetailContainer = () =>{
         .finally(()=>{
             console.log("Finalizado")
         })
-    } 
-    getItem().then(dato =>{
-        const ItemFiltrado = dato.filter(item => item.id == `${id}`)
+     
+        const ItemFiltrado = dato.filter(item => item.id == id)
     setDatos(ItemFiltrado)
-    })
     },[])
 
 
@@ -65,7 +62,7 @@ const ItemDetailContainer = () =>{
         <>
         <div className ="container">
             <div className="row">
-                <ItemDetail datos={datos[0]} />
+                <ItemDetail datos={datos} />
             </div>
         </div>
         </>
