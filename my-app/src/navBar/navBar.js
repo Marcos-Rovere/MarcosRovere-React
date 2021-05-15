@@ -9,8 +9,8 @@ const navBar = () => {
         <nav>
             <ul>
                 <img src={Logo} style={{height:"50px", width:"50px"}}></img>
-                <li> <NavLink to={`/categories/${catalogo.category}`}></NavLink>Plantas Exteriores</li>
-                <li><NavLink to={`/categories/${catalogo.category}`}></NavLink>Plantas Interiores</li>
+                <li> <NavLink to={`/categories/Plantes Exteriores`}></NavLink>Plantas Exteriores</li>
+                <li><NavLink to={`/categories/Plantes Interiores`}></NavLink>Plantas Interiores</li>
                 <li>Insumos</li>
                 <li>Contacto</li>
                 <ShoppingCartOutlined style= {{fontSize: "35px"}}/>

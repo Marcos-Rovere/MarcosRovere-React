@@ -46,15 +46,16 @@ const ItemDetailContainer = () =>{
                     resolve(catalogo)
                 },2000)
         })
+        promi.then(dato =>{
+            const ItemFiltrado = dato.filter(item => item.id == id)
+        setDatos(ItemFiltrado)
+        })
         .catch(()=>{
             console.log("Hubo un Error")
         })
         .finally(()=>{
             console.log("Finalizado")
         })
-     
-        const ItemFiltrado = dato.filter(item => item.id == id)
-    setDatos(ItemFiltrado)
     },[])
 
 
@@ -62,7 +63,7 @@ const ItemDetailContainer = () =>{
         <>
         <div className ="container">
             <div className="row">
-                <ItemDetail datos={datos} />
+                <ItemDetail dato={datos} />
             </div>
         </div>
         </>
