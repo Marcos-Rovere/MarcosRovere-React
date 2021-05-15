@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import { Link } from "react-router-dom";
 import "./styleCatalogo.css"
 
-const Items = ({img,description,title,precio,stock})=>{
+const Items = ({img,description,title,precio,stock,id})=>{
         
         const [StockTotal, setStockTotal] = useState(stock);
         const [StockComprado, setStockCompra] = useState (0);
@@ -33,7 +33,7 @@ const Items = ({img,description,title,precio,stock})=>{
                             <h5 className="card-title">{title}</h5>
                             <p className="card-text">{description}</p>
                             <p className="card-text">Cantidad Disponible: {StockTotal}</p>
-                            <p  className="btn btn-primary"><Link to={`/item/${id}`}></Link>Descripcion</p>
+                            <p  className="btn btn-primary"><Link to={`/item/${id}`}>Descripcion</Link></p>
                             <div className="row compra">
                             <button onClick={Resta} className="btn btn-outline-primary botonStock">- </button>
                             <input class="form-control" style={{width:"45px"}} placeholder={StockComprado}></input>
