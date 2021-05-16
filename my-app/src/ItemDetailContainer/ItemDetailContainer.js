@@ -47,7 +47,7 @@ const ItemDetailContainer = () =>{
                 },2000)
         })
         promi.then(dato =>{
-            const ItemFiltrado = dato.filter(item => item.id == id)
+            const ItemFiltrado = dato.find(item => item.id == categoryId)
         setDatos(ItemFiltrado)
         })
         .catch(()=>{
@@ -56,12 +56,12 @@ const ItemDetailContainer = () =>{
         .finally(()=>{
             console.log("Finalizado")
         })
-    },[])
+    },[categoryId])
     return (
         <>
         <div className ="container">
             <div className="row">
-                <ItemDetail dato={datos} />
+                <ItemDetail datos={datos} />
             </div>
         </div>
         </>

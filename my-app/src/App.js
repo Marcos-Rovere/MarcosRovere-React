@@ -12,11 +12,11 @@ function App() {
     <BrowserRouter>
     <NavBar />
     <Switch>
-      <Route path='/'>
+      <Route exact path='/'>
         <Home />
         <ItemListContainer />
       </Route>
-     <Route path = '/Item/:categoryId'>
+     <Route exact path = '/Item/:categoryId'>
         <ItemDetailContainer />
       </Route>
     </Switch>
