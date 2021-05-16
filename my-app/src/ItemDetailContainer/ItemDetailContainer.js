@@ -8,7 +8,7 @@ import FotoLengua from "../ItemListContainer/img/Lengua.png"
 
 const ItemDetailContainer = () =>{
     const [datos, setDatos] = useState({})
-    const{id} = useParams()
+    const{categoryId} = useParams()
 
     useEffect(()=>{
         const promi = new Promise ((resolve,reject)=>{
@@ -57,8 +57,6 @@ const ItemDetailContainer = () =>{
             console.log("Finalizado")
         })
     },[])
-
-
     return (
         <>
         <div className ="container">
