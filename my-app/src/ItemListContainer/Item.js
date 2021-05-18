@@ -26,18 +26,19 @@ const Items = ({img,description,title,precio,stock,id})=>{
         <React.Fragment>
         <div className="container" style={{margin:"20px"}}>
             <div className="row">
-                <div className="col-lg-3">
+                <div className="col-lg-12">
                     <div className="card" style={{textAlign:"center"}}>
                         <img src={img} className="card-img-top" alt="Producto"></img>
                         <div className="card-body">
                             <h5 className="card-title">{title}</h5>
                             <p className="card-text">{description}</p>
                             <p className="card-text">Cantidad Disponible: {StockTotal}</p>
-                            <p  className="btn btn-primary"><Link to={`/item/${id}`}>Descripcion</Link></p>
+                            <p  className="btn btn-primary"><Link to={`/item/${id}`} style={{color:"black"}}>Descripcion</Link></p>
                             <div className="row compra">
                             <button onClick={Resta} className="btn btn-outline-primary botonStock">- </button>
                             <input class="form-control" style={{width:"45px"}} placeholder={StockComprado}></input>
                             <button onClick={Sumar} className="btn btn-outline-primary">+</button>
+                            <button className="buttoComprar">Comprar</button>
                         </div>
                         </div>
                     </div>

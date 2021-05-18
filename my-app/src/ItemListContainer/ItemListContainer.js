@@ -4,6 +4,8 @@ import FotoCala from "./img/cala.jpg"
 import FotoCostilla from "./img/costillaAdam.jpg"
 import FotoCroto from "./img/Croto.jpg"
 import FotoLengua from "./img/Lengua.png"
+import {Spinner} from "reactstrap"
+import "bootstrap/dist/css/bootstrap.min.css"
 
 const ItemListContainer = () => {
     const [datos, setDatos] = useState([])
@@ -38,7 +40,7 @@ const ItemListContainer = () => {
             ];
                 setTimeout(()=>{
                     resolve(catalogo)
-                },2000)
+                },1500)
         })
         promi.then((res)=>{
             setDatos(res)
@@ -52,7 +54,16 @@ const ItemListContainer = () => {
     },[])
     
     return (
-        <ItemList productos={datos} />
+        <div className="container" style={{minHeight:"350px"}}>
+            <div className="row">
+                <div className="col-lg-3">
+                {datos.length > 0 ? 
+                <ItemList productos={datos} />
+                : <Spinner style={{margin:"100px", fontSize:"100px", marginLeft:"500px", height:"120px", width:"120px"}}/>}
+                </div>
+            </div>
+        </div>
+        
     )
 }
 export default ItemListContainer
