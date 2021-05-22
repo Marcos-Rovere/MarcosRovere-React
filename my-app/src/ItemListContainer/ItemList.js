@@ -1,5 +1,7 @@
 import React from "react"
 import Item from "./Item"
+import {Spinner} from "reactstrap"
+import "bootstrap/dist/css/bootstrap.min.css"
 
 
 

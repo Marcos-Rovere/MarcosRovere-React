@@ -1,6 +1,8 @@
 import React, {useState} from "react"
 import { Link } from "react-router-dom";
 import "./styleCatalogo.css"
+import {Spinner} from "reactstrap"
+import "bootstrap/dist/css/bootstrap.min.css"
 
 const Items = ({img,description,title,precio,stock,id})=>{
         
@@ -24,9 +26,7 @@ const Items = ({img,description,title,precio,stock,id})=>{
     
     return(
         <React.Fragment>
-        <div className="container" style={{margin:"20px"}}>
-            <div className="row">
-                <div className="col-lg-12">
+        <div style={{margin:"20px"}}>
                     <div className="card" style={{textAlign:"center"}}>
                         <img src={img} className="card-img-top" alt="Producto"></img>
                         <div className="card-body">
@@ -42,8 +42,6 @@ const Items = ({img,description,title,precio,stock,id})=>{
                         </div>
                         </div>
                     </div>
-                </div>
-            </div>
         </div>
         </React.Fragment>
     )

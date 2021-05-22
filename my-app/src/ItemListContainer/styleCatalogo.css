@@ -17,5 +17,9 @@
     font-size: 16px;
     border-radius: 4px;
     text-align: center;
-    
+}
+
+.DivCards{
+    display: flex;
+    flex-wrap: nowrap;
 }

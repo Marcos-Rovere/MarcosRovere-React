@@ -1,17 +1,24 @@
 import React, {useState, useEffect} from "react"
+import {getFirestore} from "../Firebase"
 import ItemList from "./ItemList"
-import FotoCala from "./img/cala.jpg"
-import FotoCostilla from "./img/costillaAdam.jpg"
-import FotoCroto from "./img/Croto.jpg"
-import FotoLengua from "./img/Lengua.png"
 import {Spinner} from "reactstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
+import "./styleCatalogo.css"
 
 const ItemListContainer = () => {
     const [datos, setDatos] = useState([])
 
-    useEffect(()=>{
-        const promi = new Promise ((resolve,reject)=>{
+useEffect(()=>{
+    const db = getFirestore()
+    const itemsCollection = db.collection("Items")
+    itemsCollection.get()
+        .then ((queryItems)=>{
+            queryItems.size === 0 && console.log("No hay items")
+            const documentos = queryItems.docs.map((doc)=>doc.data())
+            setDatos(documentos)
+    })
+        .catch ((err)=>console.log("el error es",err))
+       /* const promi = new Promise ((resolve,reject)=>{
             const catalogo = [
                 {id:1,
                 imag:FotoCala,
@@ -50,18 +57,16 @@ const ItemListContainer = () => {
         })
         .finally(()=>{
             console.log("Finalizado")
-        })
+        })*/
     },[])
     
     return (
-        <div className="container" style={{minHeight:"350px"}}>
-            <div className="row">
-                <div className="col-lg-3">
+        <div className="DivCards" style={{minHeight:"350px"}}>
+                <div style={{width:"300px"}}>
                 {datos.length > 0 ? 
                 <ItemList productos={datos} />
                 : <Spinner style={{margin:"100px", fontSize:"100px", marginLeft:"500px", height:"120px", width:"120px"}}/>}
                 </div>
-            </div>
         </div>
         
     )
