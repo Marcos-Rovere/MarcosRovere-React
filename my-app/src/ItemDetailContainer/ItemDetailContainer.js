@@ -1,17 +1,15 @@
 import React, {useState, useEffect} from "react"
 import ItemDetail from "./ItemDetail"
 import {useParams} from "react-router-dom"
-import FotoCala from "../ItemListContainer/img/cala.jpg"
-import FotoCostilla from "../ItemListContainer/img/costillaAdam.jpg"
-import FotoCroto from "../ItemListContainer/img/Croto.jpg"
-import FotoLengua from "../ItemListContainer/img/Lengua.png"
+import {getFirestore} from "../Firebase"
+
 
 const ItemDetailContainer = () =>{
     const [datos, setDatos] = useState({})
     const{categoryId} = useParams()
 
     useEffect(()=>{
-        const promi = new Promise ((resolve,reject)=>{
+        /*const promi = new Promise ((resolve,reject)=>{
             const catalogo = [
                 {id:1,
                 imag:FotoCala,
@@ -45,17 +43,25 @@ const ItemDetailContainer = () =>{
                 setTimeout(()=>{
                     resolve(catalogo)
                 },2000)
+        })*/
+        const db2 = getFirestore()
+        const itemsCollection2 = db2.collection("Items")
+            itemsCollection2.get()
+        .then ((queryItems)=>{
+            const ItemsFirebase = queryItems.docs.map((doc)=>doc.data())
+            const ItemFiltrado = ItemsFirebase.where('title' === categoryId)
+            setDatos(ItemFiltrado)
         })
-        promi.then(dato =>{
-            const ItemFiltrado = dato.find(item => item.id == categoryId)
-        setDatos(ItemFiltrado)
-        })
-        .catch(()=>{
-            console.log("Hubo un Error")
-        })
+        .catch ((err)=>console.log("el error es",err)
+        )
         .finally(()=>{
             console.log("Finalizado")
         })
+        /*promi.then(dato =>{
+            const ItemFiltrado = dato.find(item => item.id == categoryId)
+        setDatos(ItemFiltrado)
+        })*/
+       
     },[categoryId])
     return (
         <>

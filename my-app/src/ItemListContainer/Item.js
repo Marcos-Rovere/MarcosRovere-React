@@ -33,7 +33,7 @@ const Items = ({img,description,title,precio,stock,id})=>{
                             <h5 className="card-title">{title}</h5>
                             <p className="card-text">{description}</p>
                             <p className="card-text">Cantidad Disponible: {StockTotal}</p>
-                            <p  className="btn btn-primary"><Link to={`/item/${id}`} style={{color:"black"}}>Descripcion</Link></p>
+                            <p  className="btn btn-primary"><Link to={`/items/${title}`} style={{color:"black"}}>Descripcion</Link></p>
                             <div className="row compra">
                             <button onClick={Resta} className="btn btn-outline-primary botonStock">- </button>
                             <input class="form-control" style={{width:"45px"}} placeholder={StockComprado}></input>

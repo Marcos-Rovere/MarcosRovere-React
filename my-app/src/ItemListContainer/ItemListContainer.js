@@ -17,47 +17,11 @@ useEffect(()=>{
             const documentos = queryItems.docs.map((doc)=>doc.data())
             setDatos(documentos)
     })
-        .catch ((err)=>console.log("el error es",err))
-       /* const promi = new Promise ((resolve,reject)=>{
-            const catalogo = [
-                {id:1,
-                imag:FotoCala,
-                title:"Cala",
-                description:"Cala de Interiores",
-                stock: 5,
-                precio:"$900"},
-                {id:2,
-                imag:FotoCostilla,
-                title:"Costilla de Adam",
-                description:"Costilla de Adam",
-                stock: 5,
-                precio:"$800"},
-                {id:3,
-                imag:FotoCroto,
-                title:"Croto",
-                description:"Croto de interior",
-                stock: 5,
-                precio:"$1000"},
-                {id:4,
-                imag:FotoLengua,
-                title:"Lengua de Suegra",
-                description:"Lengua de Suegra",
-                stock: 5,
-                precio:"$600"}
-            ];
-                setTimeout(()=>{
-                    resolve(catalogo)
-                },1500)
-        })
-        promi.then((res)=>{
-            setDatos(res)
-        })
-        .catch(()=>{
-            console.log("Hubo un Error")
-        })
+        .catch ((err)=>console.log("el error es",err)
+        )
         .finally(()=>{
             console.log("Finalizado")
-        })*/
+        })
     },[])
     
     return (
