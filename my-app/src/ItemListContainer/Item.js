@@ -30,8 +30,9 @@ const Items = ({img,description,title,precio,stock,id})=>{
                     <div className="card" style={{textAlign:"center"}}>
                         <img src={img} className="card-img-top" alt="Producto"></img>
                         <div className="card-body">
-                            <h5 className="card-title">{title}</h5>
+                            <h3 className="card-title">{title}</h3>
                             <p className="card-text">{description}</p>
+                            <h5 className="card-text">{precio}</h5>
                             <p className="card-text">Cantidad Disponible: {StockTotal}</p>
                             <p  className="btn btn-primary"><Link to={`/items/${title}`} style={{color:"black"}}>Descripcion</Link></p>
                             <div className="row compra">

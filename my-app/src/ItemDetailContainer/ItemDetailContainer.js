@@ -6,10 +6,38 @@ import {getFirestore} from "../Firebase"
 
 const ItemDetailContainer = () =>{
     const [datos, setDatos] = useState({})
-    const{categoryId} = useParams()
+    const{id} = useParams()
 
     useEffect(()=>{
-        /*const promi = new Promise ((resolve,reject)=>{
+        const db = getFirestore()
+        const itemsCollectionDetail = db.collection("Items").doc(id)
+            itemsCollectionDetail.get()
+        .then ((queryItemsDetail)=>{
+            setDatos({...queryItemsDetail.data(), id:queryItemsDetail.id})
+        })
+        .catch ((err)=>console.log("el error es",err)
+        )
+        .finally(()=>{
+            console.log("Finalizado")
+        })
+      
+ 
+    },[id])
+    return (
+        <React.Fragment>
+        {datos.map((datoDetail)=>
+        <div>
+            <ItemDetail imag={datoDetail.imag} title={datoDetail.title} precio={datoDetail.precio} description={datoDetail.descripcion} />
+        </div>
+        )}
+        </React.Fragment>
+    )
+}
+
+export default ItemDetailContainer
+
+
+  /*const promi = new Promise ((resolve,reject)=>{
             const catalogo = [
                 {id:1,
                 imag:FotoCala,
@@ -44,34 +72,7 @@ const ItemDetailContainer = () =>{
                     resolve(catalogo)
                 },2000)
         })*/
-        const db2 = getFirestore()
-        const itemsCollection2 = db2.collection("Items")
-            itemsCollection2.get()
-        .then ((queryItems)=>{
-            const ItemsFirebase = queryItems.docs.map((doc)=>doc.data())
-            const ItemFiltrado = ItemsFirebase.where('title' === categoryId)
-            setDatos(ItemFiltrado)
-        })
-        .catch ((err)=>console.log("el error es",err)
-        )
-        .finally(()=>{
-            console.log("Finalizado")
-        })
-        /*promi.then(dato =>{
+          /*promi.then(dato =>{
             const ItemFiltrado = dato.find(item => item.id == categoryId)
         setDatos(ItemFiltrado)
         })*/
-       
-    },[categoryId])
-    return (
-        <>
-        <div className ="container">
-            <div className="row">
-                <ItemDetail datos={datos} />
-            </div>
-        </div>
-        </>
-    )
-}
-
-export default ItemDetailContainer

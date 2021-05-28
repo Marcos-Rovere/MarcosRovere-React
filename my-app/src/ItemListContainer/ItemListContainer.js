@@ -9,9 +9,9 @@ const ItemListContainer = () => {
     const [datos, setDatos] = useState([])
 
 useEffect(()=>{
-    const db = getFirestore()
-    const itemsCollection = db.collection("Items")
-    itemsCollection.get()
+    const db2 = getFirestore()
+    const itemsCollection2 = db2.collection("Items")
+    itemsCollection2.get()
         .then ((queryItems)=>{
             queryItems.size === 0 && console.log("No hay items")
             const documentos = queryItems.docs.map((doc)=>doc.data())
