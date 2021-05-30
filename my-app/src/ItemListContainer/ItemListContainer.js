@@ -4,24 +4,58 @@ import ItemList from "./ItemList"
 import {Spinner} from "reactstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./styleCatalogo.css"
+import { useParams } from "react-router"
 
 const ItemListContainer = () => {
     const [datos, setDatos] = useState([])
+    const {categoryId} = useParams()
 
 useEffect(()=>{
     const db2 = getFirestore()
     const itemsCollection2 = db2.collection("Items")
-    itemsCollection2.get()
+
+    if (categoryId == "PlantasInterior"){
+        const itemsPlantasInterior = itemsCollection2.where('categoryId','===','Planta Interior')
+        itemsPlantasInterior.get()
         .then ((queryItems)=>{
             queryItems.size === 0 && console.log("No hay items")
-            const documentos = queryItems.docs.map((doc)=>doc.data())
-            setDatos(documentos)
-    })
-        .catch ((err)=>console.log("el error es",err)
+            const documentos = queryItems.docs.map((doc)=>({...doc.data(), id:doc.id}))
+            setDatos(documentos)})
+        .catch ((err)=>console.log("el error es ",err)
         )
-        .finally(()=>{
-            console.log("Finalizado")
-        })
+    }
+    else if (categoryId == "PlantesExteriores"){
+        const itemsPlantasExteriores = itemsCollection2.where('categoryId','===','Planta Exteriores')
+        itemsPlantasExteriores.get()
+        .then ((queryItems)=>{
+            queryItems.size === 0 && console.log("No hay items")
+            const documentos = queryItems.docs.map((doc)=>({...doc.data(), id:doc.id}))
+            setDatos(documentos)})
+        .catch ((err)=>console.log("el error es ",err)
+        )
+    }
+    else if (categoryId == "Insumos"){
+        const itemsPlantasInterior = itemsCollection2.where('categoryId','===','Insumos')
+        itemsPlantasInterior.get()
+        .then ((queryItems)=>{
+            queryItems.size === 0 && console.log("No hay items")
+            const documentos = queryItems.docs.map((doc)=>({...doc.data(), id:doc.id}))
+            setDatos(documentos)})
+        .catch ((err)=>console.log("el error es ",err)
+        )
+    }
+    else {
+        itemsCollection2.get()
+        .then ((queryItems)=>{
+            queryItems.size === 0 && console.log("No hay items")
+            const documentos = queryItems.docs.map((doc)=>({...doc.data(), id:doc.id}))
+            setDatos(documentos)})
+            .catch ((err)=>console.log("el error es ",err)
+            )
+            .finally(()=>{
+                console.log("Finalizado")
+            })
+    } 
     },[])
     
     return (

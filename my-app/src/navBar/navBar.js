@@ -20,9 +20,9 @@ const NavBar = () => {
         <nav>
             <ul>
                 <img src={Logo} style={{height:"50px", width:"50px"}}></img>
-                <li> <Link to={`/categories/Plantes Exteriores`}></Link>Plantas Exteriores</li>
-                <li><Link to={`/categories/Plantas Interior`}>Plantas Interiores</Link></li>
-                <li>Insumos</li>
+                <li><Link to={`/PlantesExteriores`}>Plantas Exteriores</Link></li>
+                <li><Link to={`/PlantasInterior`}>Plantas Interiores</Link></li>
+                <li><Link to={`/Insumos`}>Insumos</Link></li>
                 <li>Contacto</li>
                 <ShoppingCartOutlined style= {{fontSize: "35px"}}/><Link to={`/cart`}></Link>
             </ul>

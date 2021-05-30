@@ -21,16 +21,13 @@ const ItemDetailContainer = () =>{
             console.log("Finalizado")
         })
       
- 
     },[id])
     return (
-        <React.Fragment>
-        {datos.map((datoDetail)=>
+        <>
         <div>
-            <ItemDetail imag={datoDetail.imag} title={datoDetail.title} precio={datoDetail.precio} description={datoDetail.descripcion} />
+            <ItemDetail datos={datos} />
         </div>
-        )}
-        </React.Fragment>
+        </>
     )
 }
 
