@@ -9,13 +9,15 @@ import { useParams } from "react-router"
 const ItemListContainer = () => {
     const [datos, setDatos] = useState([])
     const {categoryId} = useParams()
+    console.log("la category es", categoryId)
 
 useEffect(()=>{
     const db2 = getFirestore()
     const itemsCollection2 = db2.collection("Items")
+    
 
-    if (categoryId == "PlantasInterior"){
-        const itemsPlantasInterior = itemsCollection2.where('categoryId','===','Planta Interior')
+    if (categoryId === "PlantasInterior"){
+        const itemsPlantasInterior = itemsCollection2.where('categoryId','==','Planta Interior')
         itemsPlantasInterior.get()
         .then ((queryItems)=>{
             queryItems.size === 0 && console.log("No hay items")
@@ -23,9 +25,10 @@ useEffect(()=>{
             setDatos(documentos)})
         .catch ((err)=>console.log("el error es ",err)
         )
+        console.log("entro en plantas interior")
     }
-    else if (categoryId == "PlantesExteriores"){
-        const itemsPlantasExteriores = itemsCollection2.where('categoryId','===','Planta Exteriores')
+    else if (categoryId === "PlantasExteriores"){
+        const itemsPlantasExteriores = itemsCollection2.where('categoryId','==','Planta Exteriores')
         itemsPlantasExteriores.get()
         .then ((queryItems)=>{
             queryItems.size === 0 && console.log("No hay items")
@@ -34,8 +37,8 @@ useEffect(()=>{
         .catch ((err)=>console.log("el error es ",err)
         )
     }
-    else if (categoryId == "Insumos"){
-        const itemsPlantasInterior = itemsCollection2.where('categoryId','===','Insumos')
+    else if (categoryId === "Insumos"){
+        const itemsPlantasInterior = itemsCollection2.where('categoryId','==','Insumos')
         itemsPlantasInterior.get()
         .then ((queryItems)=>{
             queryItems.size === 0 && console.log("No hay items")
@@ -45,6 +48,7 @@ useEffect(()=>{
         )
     }
     else {
+        console.log("entro en el else")
         itemsCollection2.get()
         .then ((queryItems)=>{
             queryItems.size === 0 && console.log("No hay items")
