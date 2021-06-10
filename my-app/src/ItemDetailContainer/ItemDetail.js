@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ItemDetail.css"
 
+
 const ItemDetail = ({datos}) => {
     return (
         <div className="container" style={{minHeight:"550px"}}>

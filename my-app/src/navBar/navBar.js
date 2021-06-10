@@ -1,14 +1,16 @@
-import React, { useEffect } from "react"
+import React from "react"
 import './navBar.css'
 import Logo from "./Logo.png"
-import {ShoppingCartOutlined} from "@ant-design/icons"
-import {Link, useParams} from "react-router-dom"
-import {getFirestore} from "../Firebase"
+import {Link} from "react-router-dom"
+import { ShoppingCart } from "@material-ui/icons"
+import { Badge, IconButton } from "@material-ui/core"
+import {useStateValue} from "../StateProvider"
 
 
 
 
 const NavBar = () => {
+    const [{carrito}, dispatch] = useStateValue()
     
     return (
         <nav>
@@ -18,7 +20,13 @@ const NavBar = () => {
                 <li><Link to={`/Categorias/PlantasInterior`}>Plantas Interiores</Link></li>
                 <li><Link to={`/Categorias/Insumos`}>Insumos</Link></li>
                 <li>Contacto</li>
-                <ShoppingCartOutlined style= {{fontSize: "35px"}}/><Link to={`/cart`}></Link>
+                <Link to={`/cart/Carrito`}>
+                    <IconButton>
+                        <Badge badgeContent={carrito?.length} color="secondary">
+                            <ShoppingCart fontSize="large" color="primary"/>
+                        </Badge>
+                    </IconButton>
+                </Link>
             </ul>
         </nav>
     )

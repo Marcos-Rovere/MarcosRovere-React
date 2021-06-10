@@ -2,9 +2,19 @@ import React, {useState, useEffect} from "react"
 import ItemDetail from "./ItemDetail"
 import {useParams} from "react-router-dom"
 import {getFirestore} from "../Firebase"
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+    },
+  }));
 
 
 const ItemDetailContainer = () =>{
+    const classes = useStyles();
+
     const [datos, setDatos] = useState({})
     const{id} = useParams()
 
@@ -24,8 +34,12 @@ const ItemDetailContainer = () =>{
     },[id])
     return (
         <>
-        <div>
-            <ItemDetail datos={datos} />
+        <div className={classes.root}>
+        <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
+                <ItemDetail datos={datos} />
+            </Grid>
+        </Grid>
         </div>
         </>
     )

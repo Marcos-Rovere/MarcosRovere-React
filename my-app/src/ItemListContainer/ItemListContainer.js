@@ -2,8 +2,8 @@ import React, {useState, useEffect} from "react"
 import {getFirestore} from "../Firebase"
 import ItemList from "./ItemList"
 import {Spinner} from "reactstrap"
-import "bootstrap/dist/css/bootstrap.min.css"
-import "./styleCatalogo.css"
+//import "bootstrap/dist/css/bootstrap.min.css"
+//import "./styleCatalogo.css"
 import { useParams } from "react-router"
 
 const ItemListContainer = () => {
@@ -60,16 +60,15 @@ useEffect(()=>{
                 console.log("Finalizado")
             })
     } 
-    },[])
+    },[categoryId])
     
     return (
-        <div className="DivCards" style={{minHeight:"350px"}}>
-                <div style={{width:"300px"}}>
-                {datos.length > 0 ? 
+                
+                datos.length > 0 ? 
                 <ItemList productos={datos} />
-                : <Spinner style={{margin:"100px", fontSize:"100px", marginLeft:"500px", height:"120px", width:"120px"}}/>}
-                </div>
-        </div>
+                : <Spinner style={{margin:"100px", fontSize:"100px", marginLeft:"500px", height:"120px", width:"120px"}}/>
+                
+        
         
     )
 }

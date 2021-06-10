@@ -6,7 +6,8 @@ import ItemListContainer from "./ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer.js"
 import Home from "./Home"
 import Footer from "./Footer/Footer"
-import Cart from "./Cart"
+import CartContext from "./Carrito/CartContext"
+
 
 function App() {
   return (
@@ -23,9 +24,9 @@ function App() {
      <Route exact path = '/Items/:id'>
         <ItemDetailContainer />
       </Route>
-      <Router exact path = '/cart'>
-        <Cart />
-      </Router>
+      <Route path = '/cart/Carrito'>
+        <CartContext />
+      </Route>
     </Switch>
       <Footer />
     </BrowserRouter>
