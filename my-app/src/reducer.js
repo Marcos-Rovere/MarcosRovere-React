@@ -4,12 +4,10 @@ export const initialState = {
 
 export const actionTypes = {
     ADD_TO_CARRITO: "ADD_TO_CARRITO",
-    REMOVE_ITEM: "REMOVE_ITEM"
+    REMOVE_ITEM: "REMOVE_ITEM",
+    REMOVE_ITEM_TOTAL: "REMOVE_ITEM_TOTAL"
 }
 
-export const getCarritoTotal = (carrito) =>{
-    carrito?.reduce((amount, item) => item.precio + amount, 0)
-}
 
 const reducer = (state, action) =>{
     switch (action.type){
@@ -27,8 +25,13 @@ const reducer = (state, action) =>{
         return{
             ...state,
             carrito: newCarrito,
+        };
+        case "REMOVE_ITEM_TOTAL":
+            return{
+                ...state,
+                carrito: []
+            }
+        default: return state;
         }
-    default: return state;
-    }
 }
 export default reducer

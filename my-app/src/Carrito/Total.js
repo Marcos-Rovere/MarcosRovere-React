@@ -15,12 +15,16 @@ const useStyles = makeStyles((theme) => ({
 
 const Total = () =>{
     const [{carrito}, dispatch] = useStateValue()
-
+    let precios =  carrito.map(item=>item.precio)
+    let sumatoria = precios.reduce((precios,ValorSumado)=>{
+        return precios + ValorSumado
+    },0)
+    
     const classes = useStyles()
     return(
         <div className={classes.root}>
             <h5>Total de unidades: {carrito?.length}</h5>
-            <h5>{accounting.formatMoney(getCarritoTotal(carrito))}</h5>
+            <h5>{accounting.formatMoney(sumatoria)}</h5>
         </div>
     )
 }
