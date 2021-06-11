@@ -24,7 +24,7 @@ const CartContext = () => {
             <>
             {carrito?.map((item)=>(
                 <Grid item xs={12} sm={8} md={6} lg={4}>
-                    <Cart key={item.id} product={item}img={item.imag} title={item.title} description={item.description}precio={item.precio} id={item.id} category={item.categoryId}/>
+                    <Cart key={item.id} product={item}img={item.img} title={item.title} description={item.description}precio={item.precio} id={item.id} category={item.categoryId}/>
                 </Grid>
             ))}
             </>

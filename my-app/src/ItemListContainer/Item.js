@@ -2,20 +2,19 @@ import React, {useState} from "react"
 import { Link } from "react-router-dom";
 import "./styleCatalogo.css"
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { AddShoppingCart } from "@material-ui/icons";
+import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import accounting from "accounting"
 import {actionTypes} from "../reducer"
 import {useStateValue} from "../StateProvider"
+
 
 
 const Items = ({img,description,title,precio,stock,id,category})=>{
@@ -23,10 +22,18 @@ const Items = ({img,description,title,precio,stock,id,category})=>{
         const [StockTotal, setStockTotal] = useState(stock);
         const [StockComprado, setStockCompra] = useState (0);
     
+        const [{carrito}, dispatch] = useStateValue()
+
+        const removeItem = () => dispatch({
+            type: actionTypes.REMOVE_ITEM,
+            id: id,
+        })
+        
         const Sumar = () => {
             if (StockTotal !== 0 & StockComprado > -1){
                 setStockCompra (StockComprado + 1)
                 setStockTotal (StockTotal - 1)
+                addToCarrito ()
             }
             
         }
@@ -34,9 +41,10 @@ const Items = ({img,description,title,precio,stock,id,category})=>{
             if (StockTotal >= 0 & StockComprado > 0){
                 setStockCompra (StockComprado - 1)
                 setStockTotal (StockTotal + 1)
+                removeItem ()
             }
         }
-        const [{carrito}, dispatch] = useStateValue()
+        
         const addToCarrito = () =>{
           dispatch ({
             type: actionTypes.ADD_TO_CARRITO,
@@ -68,17 +76,9 @@ const Items = ({img,description,title,precio,stock,id,category})=>{
             expandOpen: {
               transform: 'rotate(180deg)',
             },
-            
           }));
           
-          
         const classes = useStyles();
-          
-        const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
     return (
         <>
@@ -99,32 +99,21 @@ const Items = ({img,description,title,precio,stock,id,category})=>{
         <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
             Cantidad Disponibles: {StockTotal}
+            <br></br>
+            Cantidad Comprada: {StockComprado}
             </Typography>
         </CardContent>
         <CardActions disableSpacing>
-            <IconButton aria-label="share" onClick={addToCarrito}>
+            <IconButton aria-label="share" onClick={Sumar}>
             <AddShoppingCart />
             </IconButton>
-            <IconButton
-            className={clsx(classes.expand, {
-                [classes.expandOpen]: expanded,
-            })}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-            >
-            <ExpandMoreIcon />
+            <IconButton style={{marginRight:"30px", marginLeft:"30px"}}>
+            <p  className="btn btn-primary"><Link to={`/items/${id}`} style={{color:"black"}}>Descripcion</Link></p>
+            </IconButton>
+            <IconButton aria-label="share" onClick={Resta}>
+            <RemoveShoppingCartIcon />
             </IconButton>
         </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-            <CardContent>
-            <Typography paragraph>Method:</Typography>
-            <Typography paragraph>
-                Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-                minutes.
-            </Typography>
-            </CardContent>
-        </Collapse>
         </Card>
         </>
         )

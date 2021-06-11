@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Total = () =>{
     const [{carrito}, dispatch] = useStateValue()
+
     const classes = useStyles()
     return(
         <div className={classes.root}>

@@ -15,10 +15,10 @@ const NavBar = () => {
     return (
         <nav>
             <ul>
-                <img src={Logo} style={{height:"50px", width:"50px"}}></img>
-                <li><Link to={`/Categorias/PlantasExteriores`}>Plantas Exteriores</Link></li>
-                <li><Link to={`/Categorias/PlantasInterior`}>Plantas Interiores</Link></li>
-                <li><Link to={`/Categorias/Insumos`}>Insumos</Link></li>
+                <Link to={`/`}><img src={Logo} style={{height:"50px", width:"50px"}}></img></Link>
+                <li><Link to={`/Categorias/PlantasExteriores`} style={{color:"black"}}>Plantas Exteriores</Link></li>
+                <li><Link to={`/Categorias/PlantasInterior`} style={{color:"black"}}>Plantas Interiores</Link></li>
+                <li><Link to={`/Categorias/Insumos`} style={{color:"black"}}>Insumos</Link></li>
                 <li>Contacto</li>
                 <Link to={`/cart/Carrito`}>
                     <IconButton>

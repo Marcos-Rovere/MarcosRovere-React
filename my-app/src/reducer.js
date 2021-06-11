@@ -8,7 +8,7 @@ export const actionTypes = {
 }
 
 export const getCarritoTotal = (carrito) =>{
-    carrito?.reduce((amount, item)=> item.precio + amount, 0)
+    carrito?.reduce((amount, item) => item.precio + amount, 0)
 }
 
 const reducer = (state, action) =>{
