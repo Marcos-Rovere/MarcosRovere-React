@@ -2,11 +2,12 @@ import React from "react"
 import {makeStyles} from "@material-ui/core/styles"
 import Button from '@material-ui/core/Button';
 import Grid from "@material-ui/core/Grid"
-import {IconButton, Typography} from "@material-ui/core"
+import {Typography} from "@material-ui/core"
 import {useStateValue} from "../StateProvider"
 import {actionTypes} from "../reducer"
 import Cart from "./Cart"
 import Total from "./Total"
+import {Link} from "react-router-dom"
 
 
 const useStyles = makeStyles((theme)=>({
@@ -55,7 +56,9 @@ const CartContext = () => {
                     <Typography align='center' gutterBottom variant='h4'>
                         <Total />
                         <Button variant="contained" color="primary">
-                            COMPRAR
+                            <Link to={`/FormularioCompra`}>
+                                COMPRAR
+                            </Link>
                         </Button>
                         <br></br>
                         <Button variant="contained" onClick={removeItemTotal}>

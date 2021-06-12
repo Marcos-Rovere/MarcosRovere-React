@@ -20,7 +20,7 @@ const NavBar = () => {
                 <li><Link to={`/Categorias/PlantasInterior`} style={{color:"black"}}>Plantas Interiores</Link></li>
                 <li><Link to={`/Categorias/Insumos`} style={{color:"black"}}>Insumos</Link></li>
                 <li>Contacto</li>
-                <Link to={`/cart/Carrito`}>
+                <Link to={`/Carrito`}>
                     <IconButton>
                         <Badge badgeContent={carrito?.length} color="secondary">
                             <ShoppingCart fontSize="large" color="primary"/>

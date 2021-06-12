@@ -7,6 +7,7 @@ import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer.js"
 import Home from "./Home"
 import Footer from "./Footer/Footer"
 import CartContext from "./Carrito/CartContext"
+import Checkout from './FormularioCompra/Checkout';
 
 
 function App() {
@@ -24,8 +25,11 @@ function App() {
      <Route exact path = '/Items/:id'>
         <ItemDetailContainer />
       </Route>
-      <Route path = '/cart/Carrito'>
+      <Route path = '/Carrito'>
         <CartContext />
+      </Route>
+      <Route path = '/FormularioCompra'>
+        <Checkout />
       </Route>
     </Switch>
       <Footer />
